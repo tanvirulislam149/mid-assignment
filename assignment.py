@@ -30,6 +30,23 @@ class Book:
         if flag == False:
             print("Book not found")
 
+    @staticmethod
+    def return_book(book_id):
+        flag = False
+        for book in Library.book_list:
+            if book.book_id == book_id:
+                if book.availability == False:
+                    book.availability = True
+                    print(f"Thanks for returning the {book.title} book")
+                else:
+                    print("Wrong book id")
+                flag = True
+                break
+        if flag == False:
+            print("Book not found")
+
+    
+
 ds = Book(3, "ds", "asdf", True)
 algo = Book(4, "algo", "qwer", True)
 db = Book(5, "db", "pciu", True)
@@ -42,6 +59,8 @@ for book in Library.book_list:
 
 Book.borrow_book(4)
 Book.borrow_book(4)
+Book.return_book(4)
+Book.return_book(2)
 
 for book in Library.book_list:
     print(book.book_id, book.title, book.author, book.availability)
