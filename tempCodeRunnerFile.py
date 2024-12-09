@@ -3,6 +3,7 @@ class Library:
     def __init__(self, library_name):
         self.library_name = library_name
     def entry_book(self, book):
+        # book = Book(book_id, title, author, availability)
         self.book_list.append(book)
 
 class Book:
@@ -53,45 +54,10 @@ class Book:
         if flag == False:
             print("Book not found")
 
-# Making book instances
+
 ds = Book(3, "Data Structure", "Jhankar", True)
 algo = Book(4, "Algorithm", "Mahbub", True)
 db = Book(5, "Database", "Rahat", True)
 
-# entering books in a specific library
-batighor = Library("batighor")
-batighor.entry_book(ds)
-batighor.entry_book(algo)
-batighor.entry_book(db)
-
-# Printing books
-for book in Library.book_list:
-    print(f"Id: {book.book_id}, Title: {book.title}, Author: {book.author}, Availability: {book.availability}")
-
-# Manual functions
-Book.borrow_book(4)
-Book.borrow_book(4)
-Book.return_book(4)
-Book.return_book(2)
-Book.view_book_info(4)
-
-for book in Library.book_list:
-    print(f"Id: {book.book_id}, Title: {book.title}, Author: {book.author}, Availability: {book.availability}")
-
-
-# Menu system implementation
-while True:
-    n = int(input("Enter option: "))
-    if n == 1:
-        for book in Library.book_list:
-            print(f"Id: {book.book_id}, Title: {book.title}, Author: {book.author}, Availability: {book.availability}")
-    elif n == 2:
-        id = int(input("Enter book id: "))
-        Book.borrow_book(id)
-    elif n == 3:
-        id = int(input("Enter book id: "))
-        Book.return_book(id)
-    elif n == 4:
-        print("Closing the system.")
-        break
-
+algo.title = "Lasdf"
+print(algo.title)
