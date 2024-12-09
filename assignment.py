@@ -57,23 +57,38 @@ class Book:
             print("Book not found")
 
 
-ds = Book(3, "ds", "asdf", True)
-algo = Book(4, "algo", "qwer", True)
-db = Book(5, "db", "pciu", True)
+ds = Book(3, "Data Structure", "Jhankar", True)
+algo = Book(4, "Algorithm", "Mahbub", True)
+db = Book(5, "Database", "Rahat", True)
 batighor = Library("batighor")
 batighor.entry_book(ds)
 batighor.entry_book(algo)
 batighor.entry_book(db)
-# for book in Library.book_list:
-#     print(book.book_id, book.title, book.author, book.availability)
 
-# Book.borrow_book(4)
-# Book.borrow_book(4)
-# Book.return_book(4)
-# Book.return_book(2)
-# Book.view_book_info(4)
+for book in Library.book_list:
+    print(f"Id: {book.book_id}, Title: {book.title}, Author: {book.author}, Availability: {book.availability}")
 
-# for book in Library.book_list:
-#     print(book.book_id, book.title, book.author, book.availability)
+Book.borrow_book(4)
+Book.borrow_book(4)
+Book.return_book(4)
+Book.return_book(2)
+Book.view_book_info(4)
 
-Book.view_book_info(40)
+for book in Library.book_list:
+    print(f"Id: {book.book_id}, Title: {book.title}, Author: {book.author}, Availability: {book.availability}")
+
+while True:
+    n = int(input("Enter option: "))
+    if n == 1:
+        for book in Library.book_list:
+            print(f"Id: {book.book_id}, Title: {book.title}, Author: {book.author}, Availability: {book.availability}")
+    elif n == 2:
+        id = int(input("Enter book id: "))
+        Book.borrow_book(id)
+    elif n == 3:
+        id = int(input("Enter book id: "))
+        Book.return_book(id)
+    elif n == 4:
+        print("Closing the system.")
+        break
+
