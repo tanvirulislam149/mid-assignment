@@ -45,7 +45,17 @@ class Book:
         if flag == False:
             print("Book not found")
 
-    
+    @staticmethod
+    def view_book_info(id):
+        flag = False
+        for book in Library.book_list:
+            if book.book_id == id:
+                print(f"Id: {book.book_id}, Title: {book.title}, Author: {book.author},Availability: {book.availability}")
+                flag = True
+                break
+        if flag == False:
+            print("Book not found")
+
 
 ds = Book(3, "ds", "asdf", True)
 algo = Book(4, "algo", "qwer", True)
@@ -54,13 +64,16 @@ batighor = Library("batighor")
 batighor.entry_book(ds)
 batighor.entry_book(algo)
 batighor.entry_book(db)
-for book in Library.book_list:
-    print(book.book_id, book.title, book.author, book.availability)
+# for book in Library.book_list:
+#     print(book.book_id, book.title, book.author, book.availability)
 
-Book.borrow_book(4)
-Book.borrow_book(4)
-Book.return_book(4)
-Book.return_book(2)
+# Book.borrow_book(4)
+# Book.borrow_book(4)
+# Book.return_book(4)
+# Book.return_book(2)
+# Book.view_book_info(4)
 
-for book in Library.book_list:
-    print(book.book_id, book.title, book.author, book.availability)
+# for book in Library.book_list:
+#     print(book.book_id, book.title, book.author, book.availability)
+
+Book.view_book_info(40)
